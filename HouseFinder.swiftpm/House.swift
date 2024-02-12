@@ -18,7 +18,7 @@ struct House: Identifiable, Hashable {
     }
     
     static var data: [House] = [
-        House(location: "200 Wester Street, Amherst, MA", rentPrice: 1100, phoneNumber: "123456789", isAvailable: true, numberOfBedroom: 2),
-        House(location: "300 Eastern Street, Amherst, MA", rentPrice: 900, phoneNumber: "123456789", isAvailable: true, numberOfBedroom: 3)
+        House(location: "200 Wester Street, Amherst, MA", rentPrice: 1100, phoneNumber: "123-456-789", isAvailable: true, numberOfBedroom: 2),
+        House(location: "300 Eastern Street, Amherst, MA", rentPrice: 900, phoneNumber: "123-456-789", isAvailable: true, numberOfBedroom: 3)
     ]
 }

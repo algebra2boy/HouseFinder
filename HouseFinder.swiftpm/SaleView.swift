@@ -11,12 +11,17 @@ struct SaleView: View {
                 .font(.system(size: 40))
                 .foregroundStyle(.blue)
             
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 5) {
                 Text(house.location)
                     .font(.subheadline)
                     .lineLimit(2)
                 
-                Text("# of Bedroom: \(house.numberOfBedroom)")
+                HStack {
+                    Text("# of Bedroom: \(house.numberOfBedroom)")
+                    Spacer()
+                    Image(systemName: house.isAvailable ? "checkmark" : "xmark")
+                        .foregroundStyle(house.isAvailable ? .green : .red)
+                }
                 
                 Text(String(format: "$%.2f", house.rentPrice))
                     .font(.callout)

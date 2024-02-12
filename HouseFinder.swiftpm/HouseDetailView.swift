@@ -13,6 +13,8 @@ struct HouseDetailView: View {
     
     let house: House
     
+    @State private var isBookmarked: Bool = false
+    
     var body: some View {
         VStack {
             VStack(spacing: 20) {
@@ -23,20 +25,31 @@ struct HouseDetailView: View {
                 
                 Section {
                     VStack(spacing: 15) {
-                        Text("Address: \(house.location)") 
-                        Text("isAvailable: \(house.isAvailable == true ? "Yes" : "No")") 
-                        Text("Number of bedroom: \(house.numberOfBedroom)") 
-                        Text("Contact: \(house.phoneNumber)")
-                        Text("Price: \(String(format: "$%.2f", house.rentPrice))")
+                        
+                        LabeledContent("Address:", value: house.location)
+                        LabeledContent("isAvailable:", value: house.isAvailable == true ? "Yes" : "No")
+                        LabeledContent("Number of bedroom:", value: String(house.numberOfBedroom))
+                        LabeledContent("Contact:", value: house.phoneNumber)
+                        LabeledContent("Price:", value: String(format: "$%.2f", house.rentPrice))
                     }
                     .font(.headline)
+                    .padding(.horizontal, 20)
                     
                 } header: {
-                    Label("Apartment Description", systemImage: "bookmark")
-                        .font(.title2)
-                        .foregroundStyle(.blue)
+                    HStack(spacing: 10) {
+                        Button {
+                            isBookmarked.toggle()
+                        } label: {
+                            Image(systemName: isBookmarked ? "bookmark.fill" : "bookmark")
+                                 .foregroundStyle(isBookmarked ? .yellow : .black)
+                        }
+                        .buttonStyle(.plain)
+                            
+                        Text("Apartment Description")
+                            .foregroundStyle(.blue)
+                    }
+                    .font(.title2)
                 }
-                .padding(.leading, 20)
                 
                 Map(initialPosition: .region(.init(center: .house, span: .defaultSpan))) {
                     Marker("Apartment", coordinate: .house) 
