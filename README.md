@@ -8,11 +8,11 @@
 
 
 ### Clone the repo
-- After cloning the repo, you can open the `swiftpm` package on Swift Playground or XCode using preview or iOS simulator.
-- The minimum deployment and coptatibility is iOS 17.0, and macOS 14.0. That means your system must have upgraded to iOS 17.0 or or macOS 14.0
 ```bash
 git clone https://github.com/algebra2boy/HouseFinder.git
 ```
+- After cloning the repo, you can open the `swiftpm` package on Swift Playground or XCode using preview or iOS simulator.
+- The minimum deployment and compatibility are iOS 17.0 and macOS 14.0. That means your system must have upgraded to iOS 17.0 or or macOS 14.0
 
 ### Topics we will cover
 - Text, Button, Image, Textfield
